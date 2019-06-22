@@ -1,0 +1,27 @@
+{
+	"name" : "oracle",
+	"location" : "bangalore",
+	"departments": [{
+		"name" : "faw-ngaa",
+		"employees": [{
+			"name" : "laxmi",
+			"rating" : 5,
+			"designation" : "IC4"
+		},{
+			"name" : "bhavya",
+			"rating" : 5,
+			"designation" : "IC4"
+		}]
+	},{
+		"name" : "faw-pipeline",
+		"employees": [{
+			"name" : "ghuna",
+			"rating" : 5,
+			"designation" : "M"
+		},{
+			"name" : "sandeep",
+			"rating" : 5,
+			"designation" : "IC4"
+		}]
+	}]
+}

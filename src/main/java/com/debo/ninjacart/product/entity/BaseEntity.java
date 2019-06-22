@@ -29,10 +29,55 @@ public class BaseEntity implements Serializable {
     )
     private String id;
 
-    @Column(name="CREATE_DATE")
+    @Column(name = "deleted", columnDefinition = "Bit(1) default false")
+    private boolean deleted = false;
+
+    @Column(name="CREATE_DATE", nullable = false)
     private Date createDate;
 
-    @Column(name="MODIFY_DATE")
+    @Column(name="MODIFY_DATE", nullable = false)
     private Date modifyDate;
 
+    @PrePersist
+    protected void prePersist() {
+        if (this.createDate == null) createDate = new Date();
+        if (this.modifyDate == null) modifyDate = new Date();
+    }
+
+    @PreUpdate
+    protected void preUpdate() {
+        this.modifyDate = new Date();
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public boolean isDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(boolean deleted) {
+        this.deleted = deleted;
+    }
+
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
+
+    public Date getModifyDate() {
+        return modifyDate;
+    }
+
+    public void setModifyDate(Date modifyDate) {
+        this.modifyDate = modifyDate;
+    }
 }

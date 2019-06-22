@@ -4,7 +4,8 @@ import com.debo.ninjacart.product.entity.Company;
 import com.debo.ninjacart.product.repository.CompanyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import javax.transaction.Transactional;
+
+import java.util.List;
 import java.util.Optional;
 
 
@@ -20,5 +21,9 @@ public class CompanyService {
 
     public Optional<Company> getCompanyById(long companyid) {
         return companyRepository.findById(companyid);
+    }
+
+    public List<Company> getAllCompany() {
+        return companyRepository.findAll();
     }
 }
